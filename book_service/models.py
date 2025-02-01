@@ -15,7 +15,7 @@ class Book(models.Model):
     title = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     cover = models.ImageField(upload_to=book_cover_path, null=True, blank=True)
-    inventory = models.PositiveIntegerField(default=0)
+    inventory = models.IntegerField()
     daily_fee = models.DecimalField(max_digits=6, decimal_places=2)
 
     def __str__(self):
