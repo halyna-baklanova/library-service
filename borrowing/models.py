@@ -15,5 +15,9 @@ class Borrowing(models.Model):
         User, on_delete=models.CASCADE, related_name="borrowing_user"
     )
 
+    @property
+    def is_active(self):
+        return self.actual_return_date is None
+
     def __str__(self):
         return f"Borrowing: {self.book} by User: {self.user}"
